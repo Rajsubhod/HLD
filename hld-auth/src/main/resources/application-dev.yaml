@@ -2,5 +2,22 @@ spring:
   application:
     name: hld-auth
 
-server:
-  port: 8081
+  datasource:
+    url: jdbc:postgresql://ep-tiny-hill-ao3h59e0-pooler.c-2.ap-southeast-1.aws.neon.tech/hld?sslmode=require&channelBinding=require
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
