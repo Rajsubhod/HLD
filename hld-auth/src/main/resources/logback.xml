@@ -2,7 +2,7 @@
 <configuration>
 
     <!-- Define properties for log file paths and names -->
-    <property name="LOG_DIR" value="${LOG_PATH:-/var/log/hld-auth}"/>
+    <property name="LOG_DIR" value="${LOG_PATH:-logs}"/>
     <property name="LOG_FILE" value="${LOG_FILE:-hld-auth}"/>
     <property name="MAX_FILE_SIZE" value="${MAX_FILE_SIZE:-10MB}"/>
     <property name="MAX_HISTORY" value="${MAX_HISTORY:-30}"/>
@@ -49,6 +49,7 @@
 
     <!-- Root logger -->
     <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
         <appender-ref ref="ERROR_FILE"/>
     </root>
